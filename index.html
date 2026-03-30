@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="he">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="./style/style.css">
+
+  <script src="./script/tailwind.config.js"></script>
+</head>
+
+<body class="font-body">
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 w-full z-50 border-b border-on-surface/10 bg-surface/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+      <a href="index.html">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary shadow-sm">
+            <img src="./images/profile-pic.jpg" alt="איתן אמר" class="w-full h-full object-cover">
+          </div>
+          <span class="text-xl font-headline font-bold tracking-tighter">איתן אמר</span>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#hero" class="text-primary font-semibold border-b-2 border-primary">ראשי</a>
+        <a href="#about" class="hover:text-primary transition-colors">אודות</a>
+        <a href="#projects" class="hover:text-primary transition-colors">פרויקטים</a>
+        <a href="#contact" class="hover:text-primary transition-colors">צור קשר</a>
+      </div>
+
+      <button id="theme-toggle" class="p-2.5 rounded-xl border-on-surface/10 bg-surface/80 backdrop-blur-md hover:ring-2 ring-primary transition-all ">
+        <span id="theme-light-icon" class="material-symbols-outlined hidden">light_mode</span>
+        <span id="theme-dark-icon" class="material-symbols-outlined">dark_mode</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero"
+      class="pt-40 pb-20 px-8 max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center justify-between gap-12">
+      <div class="w-full md:w-1/2 text-right space-y-6">
+        <h1 class="text-5xl md:text-7xl font-headline font-black leading-tight">
+          שלום, אני <span class="hero-gradient-text">איתן אמר</span>
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+          מפתח Full-Stack המתמחה ב-PERN Stack. בונה פתרונות דיגיטליים המשלבים הנדסה חכמה עם עיצוב מלוטש.
+        </p>
+        <div class="flex flex-row-reverse gap-4">
+          <a href="#projects"
+            class="bg-hero-grad text-white px-8 py-4 rounded-2xl font-bold text-lg hover:scale-95 transition-transform shadow-lg shadow-primary/20">צפו
+            בפרויקטים</a>
+          <a href="#about"
+            class="bg-surface-container px-8 py-4 rounded-2xl font-bold text-lg hover:bg-on-surface/5 transition-colors border border-on-surface/10">למידע
+            נוסף</a>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 flex justify-center">
+        <div class="relative w-80 h-80 md:w-[450px] md:h-[450px]">
+          <div class="absolute inset-0 hero-gradient rounded-full opacity-10 animate-pulse"></div>
+          <img alt="Ethan Amar Profile"
+            class="w-full h-full object-cover rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+            data-alt="Professional portrait of a modern minimalist designer in a light grey studio setting with soft natural window light"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUVJswD0_p_esAqe-eaxjr877F-yED8n8578Jo1fFfQDny0PImrK49WzMUh4r4Vief8LlTeebPYrV0_63r6yvFeb1202fQ5KJ8MWS_pJZ6VgQSsi-YkB4jiAYvYq5Dq2Js41a3OAVjx2ArSwymx6J3fD6mLl3mokgZiyHsPQIsX8UHHzuQ-BlSPAMwv8ag9uiGoQv2gVamMRBHdQrT8G7jdOSQXkvwoyhn8vExRPIqgAY0dK3-4vGlZCvFeG9Q7tyL0XYxnPMuc05" />
+        </div>
+    </section>
+
+    <section id="about" class="bg-surface-container py-24 px-8">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div class="w-full md:w-1/2">
+          <div class="aspect-square bg-on-surface/5 rounded-[2.5rem] overflow-hidden border border-on-surface/10">
+            <img src="./images/workspace.jpg" class="w-full h-full object-cover" alt="Workspace">
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 text-right space-y-6">
+          <h2 class="text-4xl font-headline font-bold">קצת עליי</h2>
+          <div class="w-16 h-1.5 bg-hero-grad rounded-full mr-0 ml-auto"></div>
+          <p class="text-lg text-on-surface-variant leading-loose">
+            אני מגיע מעולם ההנדסה, מה שמעניק לי נקודת מבט ייחודית על פתרון בעיות מורכבות. כיום אני מתמקד בבניית מערכות
+            סקיילביליות תוך שימוש בטכנולוגיות המתקדמות ביותר בשוק.
+          </p>
+
+          <div class="pt-4">
+            <a href="./projects/Eitan_Amar_CV.pdf" download
+              class="inline-flex items-center gap-3 bg-primary text-surface px-8 py-3.5 rounded-xl font-bold hover:opacity-90 transition-all shadow-md">
+              <span>הורדת קורות חיים</span>
+              <span class="material-symbols-outlined">download</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script/main.js"></script>
+</body>
+
+</html>

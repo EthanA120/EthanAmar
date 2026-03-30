@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="./script/tailwindDark.config.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&amp;family=Heebo:wght@300;400;500;700;800;900&amp;family=Be+Vietnam+Pro:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style/styleDark.css">
+</head>
+
+<body class="font-body selection:bg-primary/30 selection:text-primary">
+  <!-- TopNavBar Navigation Shell -->
+  <nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto flex-row">
+
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+          <img src="./images/profile-small.jpg" alt="איתן אמר" class="w-full h-full object-cover">
+        </div>
+        <div class="font-['Be_Vietnam_Pro'] font-bold text-xl tracking-tighter text-slate-900 dark:text-slate-50">
+          איתן אמר
+        </div>
+      </div>
+
+      <div class="hidden md:flex flex-row gap-8 items-center font-['Assistant'] font-medium">
+        <a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 pb-1" href="#hero">ראשי</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#about">אודות</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors"
+          href="#projects">פרויקטים</a>
+        <a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#contact">צור
+          קשר</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle"
+          class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:ring-2 ring-primary transition-all">
+          <span id="theme-toggle-dark-icon" class="material-symbols-outlined hidden">dark_mode</span>
+          <span id="theme-toggle-light-icon" class="material-symbols-outlined">light_mode</span>
+        </button>
+        <div class="md:hidden">
+          <span class="material-symbols-outlined text-on-surface">menu</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="relative min-h-[921px] flex items-center justify-center px-6 overflow-hidden" id="hero">
+      <!-- Background Glows -->
+      <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-tertiary/10 rounded-full blur-[120px]"></div>
+      <div class="max-w-4xl w-full text-center relative z-10">
+        <span class="label-md text-primary font-bold tracking-widest block mb-4 uppercase">Full Stack Developer</span>
+        <h1 class="text-6xl md:text-8xl font-black font-headline tracking-tighter mb-6 leading-tight">
+          שלום, אני <span class="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">איתן
+            אמר</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          מעצב ומפתח חוויות דיגיטליות המשלבות אסתטיקה נקייה עם ביצועים עוצמתיים. מתמחה בבניית מוצרים טכנולוגיים מקצה
+          לקצה.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a class="px-8 py-4 bg-gradient-to-br from-primary to-tertiary text-on-primary-fixed font-bold rounded-xl text-lg hover:shadow-[0_0_20px_rgba(143,245,255,0.4)] transition-all duration-300 w-full sm:w-auto"
+            href="#projects">
+            לצפייה בפרויקטים
+          </a>
+          <a class="px-8 py-4 bg-surface-variant/20 border border-primary/20 backdrop-blur-sm text-on-surface font-medium rounded-xl text-lg hover:bg-surface-variant/40 transition-all duration-300 w-full sm:w-auto"
+            href="#about">
+            למידע נוסף
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 px-6 bg-surface-container-low" id="about">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-16">
+        <!-- Profile Image -->
+        <div class="w-full md:w-1/2 flex justify-center">
+          <div class="relative group">
+            <div
+              class="absolute -inset-1 bg-gradient-to-tr from-primary to-tertiary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
+            </div>
+            <div
+              class="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-outline-variant/30">
+              <img alt="איתן אמר" class="w-full h-full object-cover"
+                data-alt="Professional headshot of a developer in a dark studio setting with subtle blue backlighting and modern aesthetic"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFJ3WsDJhADULl0FiCXFXAc9TNPehu_naPvFd3E7TDNbOs1kXmQv_oXwRm-FYJtyBn9gfX5JI2kqLRNvDkuJscQBG1oZywjK4_oLTgS3jStT5NplGnPGPBeRZX9v4JOn44KgcFOh4V0xGXDd4vfAlibyNghsibhgkQk-_Qqgm-wlHPK4vAGvPl4c4AD-Nfk0w8PPnHpNifg4DMIMQsX-zhb_R2rCusWIT5iCMe-GVa_H4iRDKcTQBw2JmFwqiSyjRTKv7eY392w2WU" />
+            </div>
+          </div>
+        </div>
+        <!-- Biography -->
+        <div class="w-full md:w-1/2 text-right">
+          <div class="flex items-center gap-4 mb-6 justify-end">
+            <h2 class="text-4xl font-bold font-headline">קצת עליי</h2>
+            <div class="h-0.5 w-12 bg-primary"></div>
+          </div>
+          <div class="space-y-6 text-lg text-on-surface-variant font-light leading-relaxed">
+            <p>
+              אני מפתח פול-סטאק עם תשוקה ליצירת פתרונות אלגנטיים לבעיות מורכבות. עם ניסיון של מעל 5 שנים בתעשייה, עבדתי
+              עם סטארטאפים וחברות גדולות על בניית מערכות סקיילביליות.
+            </p>
+            <p>
+              הגישה שלי משלבת חשיבה עיצובית (Design Thinking) עם הנדסת תוכנה קפדנית. אני מאמין שהקוד הטוב ביותר הוא זה
+              שלא רק עובד, אלא גם קריא, ניתן לתחזוקה ומספק ערך אמיתי למשתמש.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+              <div class="bg-surface-container p-4 rounded-xl border border-outline-variant/10">
+                <span class="material-symbols-outlined text-primary mb-2" data-icon="code">code</span>
+                <h3 class="font-bold text-on-surface">פיתוח נקי</h3>
+                <p class="text-sm">כתיבת קוד איכותי לפי סטנדרטים בינלאומיים.</p>
+              </div>
+              <div class="bg-surface-container p-4 rounded-xl border border-outline-variant/10">
+                <span class="material-symbols-outlined text-tertiary mb-2" data-icon="speed">speed</span>
+                <h3 class="font-bold text-on-surface">ביצועים</h3>
+                <p class="text-sm">אופטימיזציה לחוויית משתמש מהירה וחלקה.</p>
+              </div>
+            </div>
+          </div>
+          <div class="pt-6 text-center">
+            <a href="./cv/eitan-amar-cv.pdf" download
+              class="inline-flex items-center gap-2 bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 hover:scale-105 transition-all shadow-lg shadow-indigo-500/20">
+              <span>הורדת קורות חיים</span>
+              <span class="material-symbols-outlined">download</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-24 px-6" id="projects">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black font-headline mb-6">פרויקטים נבחרים</h2>
+          <!-- Filters -->
+          <div class="flex flex-wrap justify-center gap-3">
+            <button
+              class="px-6 py-2 rounded-full bg-primary text-on-primary-container font-medium text-sm transition-all">הכל</button>
+            <button
+              class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary transition-all text-sm">React</button>
+            <button
+              class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary transition-all text-sm">Node.js</button>
+            <button
+              class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary transition-all text-sm">Full
+              Stack</button>
+            <button
+              class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary transition-all text-sm">Mobile</button>
+          </div>
+        </div>
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card 1 -->
+          <div
+            class="group relative bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Modern dashboard UI with glowing charts and dark theme data visualization elements"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8a-qTYTvRNRv-g_CX2hLJdbt6FPhXBsUQRQQFN2H1lQ0ouc370z7Fdioajsscr7hCTIRVOUgGzDyFTOC7T7TxFqkjafzt0ntjfyBrfxq-ZirnXsj1NDxSFnM2VDkxLvFdjx_Fj2dMceev1LECFMadf6jPvjHH7q-T53nWYkVeXro1jDqpin9QFEo8TZ1VInmAzMxy40RWPVLy98dLnAyLxZJOhVEgY1UG8Vrw3UO4C_gHIBK_QvOs7WeMb3VEABUQ6-Ls-cM4d6r0" />
+              <div
+                class="absolute inset-0 bg-surface-container-highest/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <a class="w-full py-2 bg-primary text-on-primary-fixed rounded-lg font-bold text-sm hover:scale-95 transition-transform"
+                  href="#">לצפייה באתר</a>
+                <a class="w-full py-2 border border-primary/40 text-primary rounded-lg font-bold text-sm hover:bg-primary/10 transition-colors"
+                  href="#">הורדת קוד</a>
+                <a class="w-full py-2 text-on-surface-variant text-xs hover:text-white transition-colors"
+                  href="#">לרפוזיטורי GitHub</a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">מערכת ניהול נתונים חכמה</h3>
+              <p class="text-on-surface-variant text-sm mb-4 line-clamp-2">פלטפורמת SaaS לניהול צוותים ופרויקטים עם
+                אינטגרציה מלאה ל-AI.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">React</span>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Tailwind</span>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Firebase</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 2 -->
+          <div
+            class="group relative bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="High-end code editor interface showing clean typescript logic with neon syntax highlighting"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsreVI_7TOVCRK9OYykZPPdpkkt8Zp6fELW9OsfMPpy30Ql-eqtCwsO1nHtNcTET4d3doSqD1fzbnit0FAYx0i8IFhSJwTfxLsQwCiqxFTXVZ2RxmnNVQex8shN_oyL2-iOaIAhop1oyQbDUjnYWpNVQwKsRzp2lGFw4AcEytbPqweoueSyAju97jACd_e5OehOUYMmTwRZG9zOvkgvNfMx5a1NY1slYPo32RAsgzbIZh3U3srrr80LYViAVJa32kyj07pRe8EBgF0" />
+              <div
+                class="absolute inset-0 bg-surface-container-highest/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <button class="w-full py-2 bg-primary text-on-primary-fixed rounded-lg font-bold text-sm">לצפייה
+                  באתר</button>
+                <button class="w-full py-2 border border-primary/40 text-primary rounded-lg font-bold text-sm">הורדת
+                  קוד</button>
+                <button class="w-full py-2 text-on-surface-variant text-xs">לרפוזיטורי</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">אפליקציית פיננסים מבוזרת</h3>
+              <p class="text-on-surface-variant text-sm mb-4 line-clamp-2">ניהול ארנק קריפטו ומעקב אחר השקעות בזמן אמת.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Node.js</span>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Solidity</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 3 -->
+          <div
+            class="group relative bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Premium mobile app design showing fitness tracking screens with elegant typography and fluid transitions"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5MCihw107UZ24KFP2uNy3B7cDsfUQP60YVOd2IiykbY4tJ8dKnkZDt6LV2bQ4I_H_QAMWCXbW_QxZAWjPstZsDPwpvjEkyltzRgM-NwAYIKnoiqGi5WLjZ4MViNktILYk2MWjQxL6d073UlHP4U0zFddlVH6NgeN4dYPfzaoONXtrYZ0U8WXckl0EpSYtWODB6ylZc_EGZvueWE2VOE4LuAhcfje2pwq2Tpb2GdPkeHqOx8aczeuB-34CQBwdx0N6K5253LGM_vda" />
+              <div
+                class="absolute inset-0 bg-surface-container-highest/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <button class="w-full py-2 bg-primary text-on-primary-fixed rounded-lg font-bold text-sm">לצפייה
+                  באתר</button>
+                <button class="w-full py-2 border border-primary/40 text-primary rounded-lg font-bold text-sm">הורדת
+                  קוד</button>
+                <button class="w-full py-2 text-on-surface-variant text-xs">לרפוזיטורי</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">אפליקציית כושר חכמה</h3>
+              <p class="text-on-surface-variant text-sm mb-4 line-clamp-2">מערכת מובייל לליווי מתאמנים עם אלגוריתם התאמה
+                אישית.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">React
+                  Native</span>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Redux</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 4 -->
+          <div
+            class="group relative bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Abstract visualization of an e-commerce platform grid with floating product layers and minimalist aesthetic"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr3DRpk-jD2_5-Ay0anFXkGjD4_QuLu4M_PUymmEQHRxYRANn4fMFqr7NxByXB5OWmb3kx1Ih7jViyJsGhPbatKh5wzxPJsL6gPEb5lCdjYinIDOO_n2qLYU3D4Z1RR4hU0BPFKJ9OidkItGgdzzJoLkyf8Tp_rLUaUttCSAdRVuGNmaiA3SljJRnjsG1sQ94qLry890PI0Bi7U2MOfRrUYFC3C87p3owTws4CLNocC6z6_yrr2LD6uFdpYiwHbnorRpwezZIUPf5l" />
+              <div
+                class="absolute inset-0 bg-surface-container-highest/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <button class="w-full py-2 bg-primary text-on-primary-fixed rounded-lg font-bold text-sm">לצפייה
+                  באתר</button>
+                <button class="w-full py-2 border border-primary/40 text-primary rounded-lg font-bold text-sm">הורדת
+                  קוד</button>
+                <button class="w-full py-2 text-on-surface-variant text-xs">לרפוזיטורי</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">חנות איקומרס פרימיום</h3>
+              <p class="text-on-surface-variant text-sm mb-4 line-clamp-2">חנות וירטואלית עם מערכת תשלומים מתקדמת
+                וחוויית רכישה חלקה.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Next.js</span>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Stripe</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 5 -->
+          <div
+            class="group relative bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Cyberpunk style coding background with matrix-like textures and cyan glowing lines of code"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNf4MdsR3wS7KA0HphflCe-sCkAHJvmdueCrfisfjB3s79S-YT5ptXo-x-DeIXCCTQBN_VgorQZC2JjS_0sE56QqyLvU1oPmAOHgVYgNZevQhEwFJGHLtFCISN4LVjvpKcJuadgNkh6l7KZ9SPzlcsOzAtA8Q-6yImNRCPBK3JAwkLjQXl_MhTFt2hky462-Z3DL0DAbgiigmh-Jd_kiQ4qnYUDp2yfBJk_Rsyl6UURfnGvKjzxFH_ML2W6bPn2M7wHzN0lwhkhj_0" />
+              <div
+                class="absolute inset-0 bg-surface-container-highest/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <button class="w-full py-2 bg-primary text-on-primary-fixed rounded-lg font-bold text-sm">לצפייה
+                  באתר</button>
+                <button class="w-full py-2 border border-primary/40 text-primary rounded-lg font-bold text-sm">הורדת
+                  קוד</button>
+                <button class="w-full py-2 text-on-surface-variant text-xs">לרפוזיטורי</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">מנוע חיפוש פנימי לחברות</h3>
+              <p class="text-on-surface-variant text-sm mb-4 line-clamp-2">כלי לאיתור מידע בארגונים גדולים מבוסס על
+                Elasticsearch.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Python</span>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Elastic</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 6 -->
+          <div
+            class="group relative bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 transition-all duration-500">
+            <div class="relative h-64 overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="Digital networking nodes connecting in a dark blue space representing interconnected systems and APIs"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRhLbjo-16rTJCwYA9911ZYLPRGVYVy8r3Wl5syFO0M8S6dvPFrd80w96AJuY9VsatVwEPOHW8IcGx1mvwLRYTpq7RlKaphnxJGlfIHw5HPWwt00euNQOMeDOVeO5_QCQ1QDhbCN-qbX2i0--Dkuqq8I7ss4vNVJrETkvnyjVNLVlcTxpNGPGZ4xbPqdgDb9p8KALEZUJ7zm8KLQSXfLFItB6K2YwATyuwsfmYgyNxCtFqm4MZHU0nhV_3cco7wkSj1ZRpjWZNqLnE" />
+              <div
+                class="absolute inset-0 bg-surface-container-highest/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <button class="w-full py-2 bg-primary text-on-primary-fixed rounded-lg font-bold text-sm">לצפייה
+                  באתר</button>
+                <button class="w-full py-2 border border-primary/40 text-primary rounded-lg font-bold text-sm">הורדת
+                  קוד</button>
+                <button class="w-full py-2 text-on-surface-variant text-xs">לרפוזיטורי</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">מערכת ניטור שרתים</h3>
+              <p class="text-on-surface-variant text-sm mb-4 line-clamp-2">דאשבורד בזמן אמת המציג סטטיסטיקות שרתים
+                ועומסים.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Docker</span>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-primary text-xs rounded-full font-medium">Grafana</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-24 px-6 bg-surface-container" id="contact">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-black font-headline mb-4">בואו נדבר</h2>
+          <p class="text-on-surface-variant">יש לכם פרויקט מעניין? מוזמנים לשלוח הודעה ולהתחיל משהו גדול.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <!-- Contact Form -->
+          <form class="space-y-6 text-right">
+            <div>
+              <label class="block text-sm font-medium mb-2 text-on-surface-variant">שם מלא</label>
+              <input
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface"
+                placeholder="ישראל ישראלי" type="text" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 text-on-surface-variant">אימייל</label>
+              <input
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface"
+                placeholder="example@email.com" type="email" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 text-on-surface-variant">הודעה</label>
+              <textarea
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface"
+                placeholder="איך אוכל לעזור?" rows="4"></textarea>
+            </div>
+            <button
+              class="w-full py-4 bg-primary text-on-primary-fixed font-bold rounded-xl hover:shadow-[0_0_15px_rgba(143,245,255,0.3)] transition-all"
+              type="submit">שלח הודעה</button>
+          </form>
+
+          <!-- Contact Info & Socials -->
+          <div class="space-y-10 text-right">
+            <div>
+              <h3 class="text-xl font-bold mb-4">פרטי התקשרות</h3>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4 justify-end">
+                  <span class="text-on-surface-variant">me@alexcohen.dev</span>
+                  <span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+                </div>
+                <div class="flex items-center gap-4 justify-end">
+                  <span class="text-on-surface-variant">+972 50 123 4567</span>
+                  <span class="material-symbols-outlined text-primary" data-icon="phone">phone</span>
+                </div>
+                <div class="flex items-center gap-4 justify-end">
+                  <span class="text-on-surface-variant">תל אביב, ישראל</span>
+                  <span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-4">עקבו אחריי</h3>
+              <div class="flex gap-4 justify-end">
+                <a class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high border border-outline-variant/20 hover:border-primary hover:text-primary transition-all"
+                  href="#">
+                  <svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                    </path>
+                  </svg>
+                </a>
+                <a class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high border border-outline-variant/20 hover:border-primary hover:text-primary transition-all"
+                  href="#">
+                  <svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                    </path>
+                  </svg>
+                </a>
+                <a class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high border border-outline-variant/20 hover:border-primary hover:text-primary transition-all"
+                  href="#">
+                  <svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+                    <path
+                      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                    </path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Navigation Shell -->
+  <footer class="w-full py-12 border-t border-slate-200/20 bg-slate-50 dark:bg-slate-950">
+    <div
+      class="flex flex-col md:flex-row-reverse items-center justify-between px-8 max-w-7xl mx-auto gap-4 font-['Assistant'] text-sm">
+      <div class="flex flex-row-reverse gap-6">
+        <a class="text-slate-500 hover:text-indigo-500 underline underline-offset-4 transition-colors opacity-80 hover:opacity-100"
+          href="#">GitHub</a>
+        <a class="text-slate-500 hover:text-indigo-500 underline underline-offset-4 transition-colors opacity-80 hover:opacity-100"
+          href="#">LinkedIn</a>
+        <a class="text-slate-500 hover:text-indigo-500 underline underline-offset-4 transition-colors opacity-80 hover:opacity-100"
+          href="#">Twitter</a>
+      </div>
+      <div class="text-slate-500">
+        © 2026 כל הזכויות שמורות | איתן אמר - מפתח Full Stack
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script/main.js"></script>
+</body>
+
+</html>

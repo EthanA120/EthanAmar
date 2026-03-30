@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="he">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="./script/tailwindLight.config.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&amp;family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Heebo:wght@300;400;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./style/styleLight.css">
+</head>
+
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+  <!-- Sticky Navigation Shell -->
+  <nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-row-reverse justify-between items-center px-8 py-4">
+      <div class="text-2xl font-headline font-bold tracking-tight text-on-surface">
+        גלריה
+      </div>
+      <div class="hidden md:flex flex-row-reverse items-center gap-10">
+        <a class="text-primary border-b-2 border-primary pb-1 font-body font-semibold" href="#">ראשי</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body" href="#">אודות</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body" href="#">פרוייקטים</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body" href="#">צור קשר</a>
+      </div>
+      <button
+        class="hero-gradient text-on-primary px-6 py-2.5 rounded-xl font-body font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
+        <span>הורדת קורות חיים</span>
+        <span class="material-symbols-outlined text-sm">download</span>
+      </button>
+    </div>
+    <div class="bg-outline-variant/20 h-[1px] w-full absolute bottom-0"></div>
+  </nav>
+  <main>
+    <!-- Hero Section -->
+    <section
+      class="pt-48 pb-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center justify-between gap-16"
+      id="hero">
+      <div class="w-full md:w-1/2 space-y-8 text-right">
+        <h1 class="text-6xl md:text-7xl font-headline font-extrabold text-on-surface headline-tight leading-tight">
+          שלום, אני <span class="text-primary">איתן אמר</span>
+        </h1>
+        <p class="text-xl md:text-2xl font-body text-on-surface-variant max-w-xl leading-relaxed">
+          מעצב ומפתח חוויות דיגיטליות המשלבות אסתטיקה נקייה עם טכנולוגיה מתקדמת. בואו נבנה משהו יוצא דופן ביחד.
+        </p>
+        <div class="flex flex-row-reverse gap-6">
+          <button
+            class="hero-gradient text-on-primary px-8 py-4 rounded-xl font-body font-bold text-lg shadow-lg hover:scale-[0.98] transition-transform">
+            לצפייה בפרוייקטים
+          </button>
+          <button
+            class="bg-surface-container-high text-primary px-8 py-4 rounded-xl font-body font-bold text-lg hover:bg-surface-container transition-colors">
+            למידע נוסף
+          </button>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 flex justify-center">
+        <div class="relative w-80 h-80 md:w-[450px] md:h-[450px]">
+          <div class="absolute inset-0 hero-gradient rounded-full opacity-10 animate-pulse"></div>
+          <img alt="Ethan Amar Profile"
+            class="w-full h-full object-cover rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+            data-alt="Professional portrait of a modern minimalist designer in a light grey studio setting with soft natural window light"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUVJswD0_p_esAqe-eaxjr877F-yED8n8578Jo1fFfQDny0PImrK49WzMUh4r4Vief8LlTeebPYrV0_63r6yvFeb1202fQ5KJ8MWS_pJZ6VgQSsi-YkB4jiAYvYq5Dq2Js41a3OAVjx2ArSwymx6J3fD6mLl3mokgZiyHsPQIsX8UHHzuQ-BlSPAMwv8ag9uiGoQv2gVamMRBHdQrT8G7jdOSQXkvwoyhn8vExRPIqgAY0dK3-4vGlZCvFeG9Q7tyL0XYxnPMuc05" />
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section class="bg-surface-container-low py-32 px-8" id="about">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+        <div class="w-full md:w-1/2">
+          <img alt="Workspace" class="rounded-[2.5rem] shadow-sm w-full h-[500px] object-cover"
+            data-alt="Minimalist bright workspace with a clean wooden desk, high-end laptop, and a single succulent plant in soft daylight"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwyhMcXhwm6lnOcod58ST52Mn9ZriLGnkK9sDzpDi-XV8RRg5bXKZIYU8_npziJzMqjta5R1lld1N3yNBAO3XuOqnIQ6Sb5mReq4kqpT8qKs1lDJwuJXvFFR0pzkC6DBhBkZuNSupE0WuOjY-FFjA92rlkOgZcVeS5hUjwL8yjm1pxe5yjOFsoeZuUw2QLH1CRCBgLFoA3jh0JH4TtnT34B3e29uTRlU0OqYF_wBzptuWWlQgBIIEqjpCxZ2nh4EimM7sNi14aI9ET" />
+        </div>
+        <div class="w-full md:w-1/2 text-right space-y-6">
+          <h2 class="text-4xl font-headline font-bold text-on-surface">קצת עליי</h2>
+          <div class="w-20 h-1.5 hero-gradient rounded-full mr-0 ml-auto"></div>
+          <p class="text-lg font-body text-on-surface-variant leading-loose">
+            אני מאמין שהעיצוב הטוב ביותר הוא זה שמרגיש בלתי נראה. ב-8 השנים האחרונות אני מתמקד ביצירת ממשקים שמשרתים את
+            המשתמשים שלהם בצורה אינטואיטיבית ומדויקת.
+            <br /><br />
+            המסע שלי התחיל בעולמות העיצוב הגרפי והתפתח לפיתוח Full-Stack, מה שמאפשר לי לגשר על הפער שבין החזון הויזואלי
+            למימוש הטכנולוגי. אני מתמחה ב-React, Node.js ועיצוב מערכות מורכבות.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-6">
+            <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm">
+              <span class="text-primary font-headline font-bold text-3xl">50+</span>
+              <p class="text-on-surface-variant font-label mt-1">פרויקטים שהושלמו</p>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm">
+              <span class="text-primary font-headline font-bold text-3xl">8+</span>
+              <p class="text-on-surface-variant font-label mt-1">שנות ניסיון</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section class="py-32 px-8 max-w-7xl mx-auto" id="projects">
+      <div class="text-center space-y-6 mb-20">
+        <h2 class="text-5xl font-headline font-extrabold text-on-surface">פרויקטים נבחרים</h2>
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <button class="px-6 py-2 rounded-full bg-primary text-on-primary font-body font-semibold">הכל</button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-colors font-body">React</button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-colors font-body">Node.js</button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-colors font-body">Full
+            Stack</button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-colors font-body">Mobile</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Project Card Loop (x6) -->
+        <div
+          class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+          <div class="aspect-[4/3] relative">
+            <img alt="Project 1" class="w-full h-full object-cover"
+              data-alt="Dashboard interface for a financial analytics tool with clean charts and purple accent colors on a white background"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKSnPbO0YMRevmiGEru3Fjth9PJoEaovSj2WPVczH3b3FK9zSXjoiurAr8G9vWuaoB4MKYva3xRS18UoMYO76rUeD51eJflmFVv-u5SUNiPCOxBX1Yi-snCjS6olToxq9J5aCy891w4B_MRgPgYbx1VOtO0PCgqYgyhQDSoo9a6cIEKMnd9E1Q-lgr35RUl5V_KbV2SfT7zj63C2-QQ-Jz5mbS9QZvR2cM5Og8zuii-iBt4cJc77LSJtaM4JcAtbEom7s6lfF9T86f" />
+            <!-- Hover Overlay -->
+            <div
+              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6">
+              <button
+                class="w-full py-3 bg-white text-primary rounded-xl font-bold hover:scale-105 transition-transform">לצפייה
+                באתר</button>
+              <button
+                class="w-full py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors">הורדת
+                קוד</button>
+              <button
+                class="w-full py-3 bg-white/20 text-white rounded-xl font-bold backdrop-blur-sm hover:bg-white/30 transition-colors">לרפוזיטורי</button>
+            </div>
+          </div>
+          <div class="p-8 text-right">
+            <span class="text-primary font-label font-semibold text-xs uppercase tracking-widest">Full Stack</span>
+            <h3 class="text-2xl font-headline font-bold mt-2">מערכת ניהול פיננסי</h3>
+            <p class="text-on-surface-variant mt-3 line-clamp-2">ממשק משתמש מתקדם לניתוח נתונים בזמן אמת עם אינטגרציה
+              מלאה ל-API פיננסיים.</p>
+          </div>
+        </div>
+        <div
+          class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+          <div class="aspect-[4/3] relative">
+            <img alt="Project 2" class="w-full h-full object-cover"
+              data-alt="Clean mobile app interface showing a fitness tracker with minimalist typography and elegant health data visualization"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaVNsiLVWUJ83fi8_1YD5dQayK9SG6eFoxk6NOhfGbxfEWraKcWX1AO54G-8UcO0emhNWg-9UHIQMFPfqZxpulGZLYmpI7qPGDZtBNcxBtpdm7qBVjyMM1jPqNDct9vHSBWFkhtcRNl-2VcnyjJ4Z3lthClhu7oSfgC-30BcDe_uCAHan-5z37FFKUSfktkPfkSIQT70cpqjdwMSkM892lZgPNH7QzdqAnlMoe_w00AnPkbhe_Qhc2ZbhZgjfAVjMK1muPuNRZ19wE" />
+            <div
+              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6">
+              <button
+                class="w-full py-3 bg-white text-primary rounded-xl font-bold hover:scale-105 transition-transform">לצפייה
+                באתר</button>
+              <button
+                class="w-full py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors">הורדת
+                קוד</button>
+              <button
+                class="w-full py-3 bg-white/20 text-white rounded-xl font-bold backdrop-blur-sm hover:bg-white/30 transition-colors">לרפוזיטורי</button>
+            </div>
+          </div>
+          <div class="p-8 text-right">
+            <span class="text-primary font-label font-semibold text-xs uppercase tracking-widest">Mobile</span>
+            <h3 class="text-2xl font-headline font-bold mt-2">אפליקציית כושר אישית</h3>
+            <p class="text-on-surface-variant mt-3 line-clamp-2">חווית משתמש ייחודית המשלבת גיימיפיקציה ומעקב מדויק אחר
+              מדדי בריאות.</p>
+          </div>
+        </div>
+        <div
+          class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+          <div class="aspect-[4/3] relative">
+            <img alt="Project 3" class="w-full h-full object-cover"
+              data-alt="A dark-themed code editor showing React code with vibrant syntax highlighting in a professional studio setup"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCImCZdUfUWG0QijsanTfKDZKlfACLAJzA4DdjO2IJr7HKI2X-NqoqgHGugOpHF6TF1AgWh_h0g5tAWrvpbgBm5XYm2ZesBPrrvIjjq_ZuqP9qxKLUIYvvegPtHu7pJQLX5-EUmaqpRvAPClinDFGZIN9pGR99tWxKdjRlN_BGX1ruA9RGYsHCR0kVFuJMrYQZR3g5IP3SR4GzQNjmogfwzx1rKj7abxrOOYOdHJn84uT3rrczfMyxaAhobz4ohnxxRq5BOoL_8GDQe" />
+            <div
+              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6">
+              <button
+                class="w-full py-3 bg-white text-primary rounded-xl font-bold hover:scale-105 transition-transform">לצפייה
+                באתר</button>
+              <button
+                class="w-full py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors">הורדת
+                קוד</button>
+              <button
+                class="w-full py-3 bg-white/20 text-white rounded-xl font-bold backdrop-blur-sm hover:bg-white/30 transition-colors">לרפוזיטורי</button>
+            </div>
+          </div>
+          <div class="p-8 text-right">
+            <span class="text-primary font-label font-semibold text-xs uppercase tracking-widest">React</span>
+            <h3 class="text-2xl font-headline font-bold mt-2">ספריית רכיבי UI</h3>
+            <p class="text-on-surface-variant mt-3 line-clamp-2">מערכת עיצוב מקיפה שנבנתה עבור מפתחים, עם דגש על נגישות
+              וביצועים.</p>
+          </div>
+        </div>
+        <div
+          class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+          <div class="aspect-[4/3] relative">
+            <img alt="Project 4" class="w-full h-full object-cover"
+              data-alt="Elegant architecture portfolio website with large high-quality images and minimal navigation on a clean grid"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEGzeTcl7g0cKlYFrGOBwTfuAYGmnb3cpGQ99YXE7vKOxeboqFqL1l1H80aX-N60XGcYTl84yEYLYNZjePOlvgUylC2Ax0RZX_R3Sap3Ski0IGp1AeHvudKfMVNNnGwAaL-F2tmNIt8I24PVmQ31iGJHIq51IljuET_1kBI7nDevoUdtynbHUDzA2mEgS0QGaGc8XBg5RfPNV4pOVqSAeTG134pjFHs3XGhHB7y4x7yQqkmWYKIkc0MfBN7sjk2afeT7NPCw6E879V" />
+            <div
+              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6">
+              <button
+                class="w-full py-3 bg-white text-primary rounded-xl font-bold hover:scale-105 transition-transform">לצפייה
+                באתר</button>
+              <button
+                class="w-full py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors">הורדת
+                קוד</button>
+              <button
+                class="w-full py-3 bg-white/20 text-white rounded-xl font-bold backdrop-blur-sm hover:bg-white/30 transition-colors">לרפוזיטורי</button>
+            </div>
+          </div>
+          <div class="p-8 text-right">
+            <span class="text-primary font-label font-semibold text-xs uppercase tracking-widest">Full Stack</span>
+            <h3 class="text-2xl font-headline font-bold mt-2">פלטפורמת תיק עבודות</h3>
+            <p class="text-on-surface-variant mt-3 line-clamp-2">זירת מסחר דיגיטלית לאמנים המאפשרת הצגה ומכירה של יצירות
+              אמנות.</p>
+          </div>
+        </div>
+        <div
+          class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+          <div class="aspect-[4/3] relative">
+            <img alt="Project 5" class="w-full h-full object-cover"
+              data-alt="Modern desktop setup with an iMac showing a sleek music streaming interface with blurred album covers"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkA0dCnZwCSZj5ycsGduNP3B9ocmTqX1wiOofwRAW_SwIm42jH0wDvfichEejInqnx_zpsVoMosZCZ20RGsrTa47GvjJX0im5wMScd2ku5B64A6Si9NaVDfauMGhZ78FIrsWf0EFFpYLaHPxgePzJrpneUMfRX9hrphXqHnVa6CGAMpm8aNDnG7zQAAutCFtThbwRosIVzY2O1CqOs5M7QEEjnGTaBMFBruWyqydZ3Y02zuX0F0wXqzQCt03zL73A4B9DPB_luUecY" />
+            <div
+              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6">
+              <button
+                class="w-full py-3 bg-white text-primary rounded-xl font-bold hover:scale-105 transition-transform">לצפייה
+                באתר</button>
+              <button
+                class="w-full py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors">הורדת
+                קוד</button>
+              <button
+                class="w-full py-3 bg-white/20 text-white rounded-xl font-bold backdrop-blur-sm hover:bg-white/30 transition-colors">לרפוזיטורי</button>
+            </div>
+          </div>
+          <div class="p-8 text-right">
+            <span class="text-primary font-label font-semibold text-xs uppercase tracking-widest">React</span>
+            <h3 class="text-2xl font-headline font-bold mt-2">נגן מוזיקה מבוסס ענן</h3>
+            <p class="text-on-surface-variant mt-3 line-clamp-2">חווית האזנה רציפה עם סנכרון בזמן אמת בין מכשירים שונים.
+            </p>
+          </div>
+        </div>
+        <div
+          class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+          <div class="aspect-[4/3] relative">
+            <img alt="Project 6" class="w-full h-full object-cover"
+              data-alt="High-end fashion e-commerce site with minimalist layout and high-fashion photography on white background"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZcACUHev5PpaT7sxfkmv7K6jFVwHYSvBPWZ5oLquj2tw2_bMCBgVGoArFV0PUDnjjduT9lIzN0DexbGERcyE3RHfxy3i5XFsEoWVztcpwKPs5q6Xuf_a3pViBewArUw4kppmQBYc_1phaTdlJLiON_FYEwkQi8YiZJVb2H-AZ6RwpGKRdygN7GATeUO1QLIhUHPu1nJf7kN7ybdta6H1-go8x4hBZnF6TSEyJYaSkIeEI-1vchMTFqIo3t6kwP-8CLtgjlbAZDiqr" />
+            <div
+              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-6">
+              <button
+                class="w-full py-3 bg-white text-primary rounded-xl font-bold hover:scale-105 transition-transform">לצפייה
+                באתר</button>
+              <button
+                class="w-full py-3 border-2 border-white text-white rounded-xl font-bold hover:bg-white/10 transition-colors">הורדת
+                קוד</button>
+              <button
+                class="w-full py-3 bg-white/20 text-white rounded-xl font-bold backdrop-blur-sm hover:bg-white/30 transition-colors">לרפוזיטורי</button>
+            </div>
+          </div>
+          <div class="p-8 text-right">
+            <span class="text-primary font-label font-semibold text-xs uppercase tracking-widest">Full Stack</span>
+            <h3 class="text-2xl font-headline font-bold mt-2">חנות אופנה אלקטרונית</h3>
+            <p class="text-on-surface-variant mt-3 line-clamp-2">מערכת מסחר מלאה הכוללת ניהול מלאי, סליקה וממשק מנהל
+              מעוצב.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="bg-surface py-32 px-8 border-t border-outline-variant/10" id="contact">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-5xl font-headline font-extrabold text-on-surface mb-8">בואו נדבר</h2>
+        <p class="text-xl font-body text-on-surface-variant mb-12">יש לכם רעיון לפרויקט או סתם רוצים להגיד שלום? אני
+          תמיד פתוח לשמוע על הזדמנויות חדשות.</p>
+        <form class="space-y-8 text-right bg-surface-container-lowest p-10 rounded-[2.5rem] shadow-sm">
+          <div class="space-y-6">
+            <div class="relative">
+              <label class="block text-sm font-label text-on-surface-variant mb-2 pr-2">שם מלא</label>
+              <input
+                class="w-full bg-surface-container-low border-none border-b-2 border-outline-variant/20 focus:border-primary focus:ring-0 py-4 px-6 rounded-xl transition-all font-body"
+                placeholder="מה השם שלך?" type="text" />
+            </div>
+            <div class="relative">
+              <label class="block text-sm font-label text-on-surface-variant mb-2 pr-2">אימייל</label>
+              <input
+                class="w-full bg-surface-container-low border-none border-b-2 border-outline-variant/20 focus:border-primary focus:ring-0 py-4 px-6 rounded-xl transition-all font-body"
+                placeholder="איך אפשר לחזור אליך?" type="email" />
+            </div>
+            <div class="relative">
+              <label class="block text-sm font-label text-on-surface-variant mb-2 pr-2">הודעה</label>
+              <textarea
+                class="w-full bg-surface-container-low border-none border-b-2 border-outline-variant/20 focus:border-primary focus:ring-0 py-4 px-6 rounded-xl transition-all font-body resize-none"
+                placeholder="ספרו לי על הפרויקט שלכם..." rows="4"></textarea>
+            </div>
+          </div>
+          <button
+            class="w-full hero-gradient text-on-primary py-5 rounded-xl font-body font-bold text-xl shadow-lg hover:opacity-90 transition-opacity">
+            שלח הודעה
+          </button>
+        </form>
+        <div class="mt-20 flex justify-center gap-12">
+          <a class="text-on-surface-variant hover:text-primary transition-colors flex flex-col items-center gap-2"
+            href="#">
+            <span class="text-sm font-label">LinkedIn</span>
+          </a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors flex flex-col items-center gap-2"
+            href="#">
+            <span class="text-sm font-label">Instagram</span>
+          </a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors flex flex-col items-center gap-2"
+            href="#">
+            <span class="text-sm font-label">Behance</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full border-t border-slate-200 bg-slate-50">
+    <div class="flex flex-row-reverse justify-between items-center px-8 py-12 max-w-7xl mx-auto">
+      <div class="text-sm font-body text-slate-500 dir-rtl">
+        © 2024 כל הזכויות שמורות
+      </div>
+      <div class="flex flex-row-reverse gap-8">
+        <a class="text-slate-500 hover:text-indigo-500 transition-colors font-body text-sm" href="#">אינסטגרם</a>
+        <a class="text-slate-500 hover:text-indigo-500 transition-colors font-body text-sm" href="#">לינקדאין</a>
+        <a class="text-slate-500 hover:text-indigo-500 transition-colors font-body text-sm" href="#">ביהנס</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
