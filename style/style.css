@@ -1,44 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;700;900&display=swap');
 
-/* Color palette configuration: 
-   Light mode uses Cyan/Teal tones, Dark mode uses Purple/Indigo tones.
+/* Color palette configuration using RGB numbers only.
+   This allows Tailwind to use the /opacity syntax globally.
 */
 
 :root {
-    /* Light Mode: Cyan/Teal Theme */
-    --color-primary: #49a1ff;
-    --color-primary-variant: #8ff5ff;
-    --color-surface: #f5f8fa;
-    --color-on-surface: #1a1c1e;
-    --color-on-surface-variant: #5c6063;
-    --color-surface-container: #e1e7ed;
+    /* Light Mode: Cyan/Teal Theme (RGB values) */
+    --color-primary: 73 161 255;             /* #49a1ff */
+    --color-primary-variant: 143 245 255;    /* #8ff5ff */
+    --color-surface: 225 231 237;            /* #e1e7ed */
+    --color-on-surface: 26 28 30;            /* #1a1c1e */
+    --color-surface-container: 245 248 250;  /* #f5f8fa */
+    --color-on-surface-variant: 92 96 99;    /* #5c6063 */
+    
+    --nav-bg: 255 255, 255;
     --gradient-hero: linear-gradient(135deg, #65afff 0%, #8ff5ff 100%);
-    --card-shadow: 0 4px 20px rgba(0, 76, 85, 0.08);
+    --shadow-primary-glow: 0 0 20px rgba(73, 161, 255, 0.4);
 }
 
 .dark {
-    /* Dark Mode: Purple/Indigo Theme */
-    --color-primary: #9795ff;
-    --color-primary-variant: #4a40e0;
-    --color-surface: #0f0c1d;
-    --color-on-surface: #f1f0ff;
-    --color-on-surface-variant: #a2a1b5;
-    --color-surface-container: #1b182e;
+    /* Dark Mode: Purple/Indigo Theme (RGB values) */
+    --color-primary: 151 149 255;            /* #9795ff */
+    --color-primary-variant: 74 64 224;      /* #4a40e0 */
+    --color-surface: 15 12 29;               /* #0f0c1d */
+    --color-on-surface: 241 240 255;         /* #f1f0ff */
+    --color-on-surface-variant: 162 161 181; /* #a2a1b5 */
+    --color-surface-container: 27 24 46;     /* #1b182e */
+
+    --nav-bg: 15 12 29;
     --gradient-hero: linear-gradient(135deg, #4a40e0 0%, #9795ff 100%);
-    --card-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    --shadow-primary-glow: 0 0 25px rgba(151, 149, 255, 0.5);
 }
 
-/* Base styles and typography */
+/* Updated body to use rgb() with the variables */
 body {
-    background-color: var(--color-surface);
-    color: var(--color-on-surface);
+    background-color: rgb(var(--color-surface));
+    color: rgb(var(--color-on-surface));
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: 'Assistant', sans-serif;
 }
 
-/* Hero Background Color */
-.hero-gradient {
-    background: var(--gradient-hero);
+.glass-nav {
+    background-color: rgba(var(--nav-bg), 0.75);
+    backdrop-filter: blur(12px);
 }
 
 .hero-gradient-text {
