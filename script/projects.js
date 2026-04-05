@@ -85,28 +85,25 @@ const projects = [
 /* --- Render Projects Function --- */
 function renderProjects(filter = "all") {
     const grid = document.getElementById('projects-grid');
-    grid.innerHTML = ""; // Clear current projects
+    const dotsContainer = document.getElementById('carousel-dots');
+    grid.innerHTML = ""; 
+    if(dotsContainer) dotsContainer.innerHTML = "";
 
-    // If "all" is choosen get all projects, else choose projects by filtered category
-    const filtered = filter === "all" ? projects : projects.filter(project => project.category === filter);
+    const filtered = filter === "all" 
+        ? projects 
+        : projects.filter(p => p.category === filter);
 
     filtered.forEach((project, index) => {
         const card = `
-            <div class="group relative bg-surface-container rounded-[2rem] overflow-hidden border border-on-surface/5 shadow-lg transition-all hover:-translate-y-2" data-aos="fade-up" data-aos-delay="${index * 100}">
+            <div class="group relative bg-surface-container rounded-[2rem] overflow-hidden border border-on-surface/5 shadow-lg transition-all md:hover:-translate-y-2">
                 
                 <div class="relative aspect-video overflow-hidden">
                     <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     
                     <div class="absolute inset-0 bg-primary/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                        <a href="${project.demoLink}" class="p-3 bg-surface rounded-full text-primary hover:scale-110 transition-transform shadow-lg" title="Live Demo">
-                            <span class="material-symbols-outlined">visibility</span>
-                        </a>
-                        <a href="${project.repoLink}" class="p-3 bg-surface rounded-full text-primary hover:scale-110 transition-transform shadow-lg" title="GitHub Repo">
-                            <span class="material-symbols-outlined">code</span>
-                        </a>
-                        <a href="${project.downloadLink}" class="p-3 bg-surface rounded-full text-primary hover:scale-110 transition-transform shadow-lg" title="Download Code">
-                            <span class="material-symbols-outlined">download</span>
-                        </a>
+                        <a href="${project.demoLink}" target="_blank" class="p-3 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined">visibility</span></a>
+                        <a href="${project.repoLink}" target="_blank" class="p-3 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined">code</span></a>
+                        <a href="${project.downloadLink}" target="_blank" class="p-3 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined">download</span></a>
                     </div>
                 </div>
 
@@ -120,18 +117,42 @@ function renderProjects(filter = "all") {
             </div>
         `;
         grid.innerHTML += card;
+
+        // Add dot for each project on mobile
+        if(dotsContainer) {
+            const dot = document.createElement('div');
+            dot.className = `w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-primary w-4' : 'bg-on-surface/20'}`;
+            dotsContainer.appendChild(dot);
+        }
+    });
+
+    // Update dots on scroll
+    grid.addEventListener('scroll', () => {
+        const scrollIndex = Math.round(grid.scrollLeft / (window.innerWidth * 0.85));
+        const dots = dotsContainer.querySelectorAll('div');
+        dots.forEach((dot, i) => {
+            if(i === Math.abs(scrollIndex)) {
+                dot.classList.add('bg-primary', 'w-4');
+                dot.classList.remove('bg-on-surface/20');
+            } else {
+                dot.classList.remove('bg-primary', 'w-4');
+                dot.classList.add('bg-on-surface/20');
+            }
+        });
     });
 }
 
 /* --- Filter Tab Logic --- */
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', (btnEvent) => {
-        // Update UI active state
+        // Update UI state for all other buttons
         document.querySelectorAll('.filter-btn').forEach(b => {
             b.classList.remove('bg-primary', 'text-surface', 'border-primary');
-            b.classList.add('text-on-surface-variant', 'border-on-surface/10');
+            b.classList.add('text-on-surface-variant', 'border-on-surface/10', 'hover:border-primary', 'hover:text-primary');
         });
-        btnEvent.target.classList.add('bg-primary', 'text-surface', 'border-primary');
+        // Update UI state for currently active button
+        btnEvent.target.classList.add('bg-primary', 'text-surface', 'border-primary'); // Add primary colors and effects
+        btnEvent.target.classList.remove('hover:border-primary', 'hover:text-primary'); // Remove hover effects
         
         // Filter projects according to "data-filter" button's attribute
         renderProjects(btnEvent.target.dataset.filter);
