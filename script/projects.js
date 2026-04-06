@@ -1,84 +1,14 @@
 /* --- Projects Data Array --- */
 const projects = [
     {
-        title: "E-Commerce System",
-        description: "Full-stack online store with payment integration and admin dashboard.",
-        category: "react",
-        tags: ["React", "Node.js", "PostgreSQL"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
-    },
-    {
-        title: "Task Management API",
-        description: "Scalable RESTful API for managing corporate team tasks and deadlines.",
-        category: "node",
-        tags: ["Node.js", "Express", "MongoDB"],
-        image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
-    },
-    {
-        title: "E-Commerce System",
-        description: "Full-stack online store with payment integration and admin dashboard.",
-        category: "react",
-        tags: ["React", "Node.js", "PostgreSQL"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
-    },
-    {
-        title: "Task Management API",
-        description: "Scalable RESTful API for managing corporate team tasks and deadlines.",
-        category: "node",
-        tags: ["Node.js", "Express", "MongoDB"],
-        image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
-    },
-    {
-        title: "E-Commerce System",
-        description: "Full-stack online store with payment integration and admin dashboard.",
-        category: "react",
-        tags: ["React", "Node.js", "PostgreSQL"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
-    },
-    {
-        title: "Task Management API",
-        description: "Scalable RESTful API for managing corporate team tasks and deadlines.",
-        category: "node",
-        tags: ["Node.js", "Express", "MongoDB"],
-        image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
-    },
-    {
-        title: "E-Commerce System",
-        description: "Full-stack online store with payment integration and admin dashboard.",
-        category: "react",
-        tags: ["React", "Node.js", "PostgreSQL"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
-    },
-    {
-        title: "Task Management API",
-        description: "Scalable RESTful API for managing corporate team tasks and deadlines.",
-        category: "node",
-        tags: ["Node.js", "Express", "MongoDB"],
-        image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800",
-        demoLink: "#",
-        repoLink: "#",
-        downloadLink: "#"
+        title: "איקס עיגול",
+        description: "המשחק הקלאסי שכולנו מכירים בגירסאת הדפדפן",
+        category: "JS",
+        tags: ["HTML", "CSS", "JavaScript"],
+        image: "./projects/Tic Tac Toe/tic-tac-toe.svg",
+        demoLink: "./projects/Tic Tac Toe/index.html",
+        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Tic%20Tac%20Toe",
+        downloadLink: "./projects/Tic Tac Toe/Tic Tac Toe.rar"
     },
 ];
 
@@ -100,19 +30,19 @@ function renderProjects(filter = "all") {
                 <div class="relative aspect-video overflow-hidden">
                     <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-primary/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                        <a href="${project.demoLink}" target="_blank" class="p-3 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined">visibility</span></a>
-                        <a href="${project.repoLink}" target="_blank" class="p-3 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined">code</span></a>
-                        <a href="${project.downloadLink}" target="_blank" class="p-3 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined">download</span></a>
+                    <div class="absolute inset-0 bg-primary/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <a href="${project.demoLink}" target="_blank" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">play_circle</span></a>
+                        <a href="${project.repoLink}" target="_blank" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">folder_code</span></a>
+                        <a href="${project.downloadLink}" target="_blank" download class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">download</span></a>
                     </div>
                 </div>
 
                 <div class="p-6 text-right">
                     <div class="flex flex-row-reverse gap-2 mb-3">
-                        ${project.tags.map(tag => `<span class="text-[10px] font-bold px-2 py-1 bg-primary/10 text-primary rounded-md uppercase">${tag}</span>`).join('')}
+                        ${project.tags.map(tag => `<span class="text-md font-bold px-2 py-1 bg-primary/10 text-primary rounded-md uppercase">${tag}</span>`).join('')}
                     </div>
                     <h3 class="text-xl font-black text-on-surface mb-2">${project.title}</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">${project.description}</p>
+                    <p class="text-on-surface-variant text-lg leading-relaxed">${project.description}</p>
                 </div>
             </div>
         `;

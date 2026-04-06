@@ -3,45 +3,44 @@
 /* Color palette configuration using RGB numbers only.
    This allows Tailwind to use the /opacity syntax globally.
 */
-
 :root {
     /* Light Mode: Cyan/Teal Theme (RGB values) */
-    --color-primary: 73 161 255;             /* #49a1ff */
-    --color-primary-variant: 143 245 255;    /* #8ff5ff */
-    --color-surface: 255 255 255;            /* #ffffff */
-    --color-on-surface: 26 28 30;            /* #1a1c1e */
-    --color-surface-container: 245 248 250;  /* #f5f8fa */
-    --color-on-surface-variant: 92 96 99;    /* #5c6063 */
-    
-    --nav-bg: 255 255, 255;
+    --color-primary: #49a1ff;
+    --color-primary-variant: #8ff5ff;
+    --color-surface: #ffffff;
+    --color-on-surface: #1a1c1e;
+    --color-surface-container: #f5f8fa;
+    --color-on-surface-variant: #5c6063;
+
+    --nav-bg: rgba(255, 255, 255, 0.75);
     --gradient-hero: linear-gradient(135deg, #65afff 0%, #8ff5ff 100%);
     --shadow-primary-glow: 0 0 20px rgba(73, 161, 255, 0.4);
 }
 
 .dark {
     /* Dark Mode: Purple/Indigo Theme (RGB values) */
-    --color-primary: 151 149 255;            /* #9795ff */
-    --color-primary-variant: 74 64 224;      /* #4a40e0 */
-    --color-surface: 15 12 29;               /* #0f0c1d */
-    --color-on-surface: 241 240 255;         /* #f1f0ff */
-    --color-on-surface-variant: 162 161 181; /* #a2a1b5 */
-    --color-surface-container: 27 24 46;     /* #1b182e */
+    --color-primary: #9795ff;
+    --color-primary-variant: #4a40e0;
+    --color-surface: #0f0c1d;
+    --color-on-surface: #f1f0ff;
+    --color-on-surface-variant: #a2a1b5;
+    --color-surface-container: #1b182e;
 
-    --nav-bg: 15 12 29;
+    --nav-bg: rgba(15, 12, 29, 0.75);
     --gradient-hero: linear-gradient(135deg, #4a40e0 0%, #9795ff 100%);
     --shadow-primary-glow: 0 0 25px rgba(151, 149, 255, 0.5);
 }
 
-/* Updated body to use rgb() with the variables */
+/* Updated body to use rgb with the variables */
 body {
-    background-color: rgb(var(--color-surface));
-    color: rgb(var(--color-on-surface));
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: 'Assistant', sans-serif;
 }
 
 .glass-nav {
-    background-color: rgba(var(--nav-bg), 0.75);
+    background-color: var(--nav-bg);
     backdrop-filter: blur(12px);
 }
 
@@ -53,7 +52,13 @@ body {
 }
 
 .material-symbols-outlined {
+    cursor: pointer;
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.project-button {
+    font-size: 40px;
+    vertical-align: middle;
 }
 
 
@@ -65,15 +70,17 @@ body {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 /* Ensure each card snaps into place on mobile */
 @media (max-width: 768px) {
-    #projects-grid > div {
+    #projects-grid>div {
         min-width: 85vw;
-        snap-align: center;
+        scroll-snap-align: center;
         margin-left: 1rem;
     }
 }

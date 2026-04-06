@@ -20,19 +20,19 @@ const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').ma
 if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
     htmlElement.classList.add('light');
     htmlElement.classList.remove('dark');
-    darkIcon.classList.remove('hidden');
-    lightIcon.classList.add('hidden');
+    darkIcon.hidden = false;
+    lightIcon.hidden = true;
 } else {
     htmlElement.classList.add('dark');
     htmlElement.classList.remove('light');
-    darkIcon.classList.add('hidden');
-    lightIcon.classList.remove('hidden');
+    darkIcon.hidden = true;
+    lightIcon.hidden = false;
 }
 
 // Theme button onClick event
 themeToggleBtn.addEventListener('click', () => {
-    darkIcon.classList.toggle('hidden');
-    lightIcon.classList.toggle('hidden');
+    darkIcon.hidden = !darkIcon.hidden;
+    lightIcon.hidden = !lightIcon.hidden;
 
     if (htmlElement.classList.contains('dark')) {
         htmlElement.classList.replace('dark', 'light');

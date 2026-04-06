@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="he">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="game-page">
+    <section class="game-card">
+      <div class="top-bar">
+        <h1>איקס עיגול</h1>
+      </div>
+      <div class="status-box">
+        <h2 class="status-text">תור נוכחי</h2>
+        <div class="current-player"></div>
+      </div>
+      <div class="board">
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+      </div>
+      <div class="game-info">
+        <p>לחץ על תא פנוי כדי לשחק</p>
+      </div>
+      <div class="actions">
+        <button class="reset-btn" onclick="resetGame()">איפוס משחק</button>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+
+</html>
