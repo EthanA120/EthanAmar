@@ -10,6 +10,16 @@ const projects = [
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Tic%20Tac%20Toe",
         downloadLink: "./projects/Tic Tac Toe/Tic Tac Toe.rar"
     },
+    {
+        title: "רשימת משימות",
+        description: "אפליקציה קטנה לכתיבת רשימה",
+        category: "JS",
+        tags: ["HTML", "CSS", "JavaScript"],
+        image: "./projects/ToDo List/ToDoList.png",
+        demoLink: "./projects/ToDo List/index.html",
+        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/ToDo%20List",
+        downloadLink: "./projects/ToDo List/ToDo List.rar"
+    },
 ];
 
 /* --- Render Projects Function --- */
