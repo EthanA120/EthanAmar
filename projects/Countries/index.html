@@ -1,14 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Country Project</title>
-  </head>
-  <body>
-    <input id="searchInput" />
-    <button id="searchButton">Search</button>
-    <table id="countriesTable"></table>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>World Countries Explorer</h2>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by name, capital, currency or flag URL...">
+        <button id="searchButton">Search</button>
+    </div>
+
+    <div class="table-wrapper">
+        <table id="countriesTable">
+            <thead>
+                <tr>
+                    <th>Flag</th>
+                    <th data-sort="name" aria-sort="ascending" class="sort-by">Name ↕</th>
+                    <th data-sort="capital" class="sort-by">Capital ↕</th>
+                    <th data-sort="currency" class="sort-by">Currency ↕</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                </tbody>
+        </table>
+    </div>
+
     <script src="app.js"></script>
-  </body>
+</body>
 </html>

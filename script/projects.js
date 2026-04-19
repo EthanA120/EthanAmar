@@ -20,6 +20,16 @@ const projects = [
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/ToDo%20List",
         downloadLink: "./projects/ToDo List/ToDo List.rar"
     },
+    {
+        title: "מדינות העולם",
+        description: "אפליקציה שמאפשרת חיפוש והצגה של מידע כללי על מדינות העולם",
+        category: "JS",
+        tags: ["HTML", "CSS", "JavaScript"],
+        image: "./projects/Countries/countries.png",
+        demoLink: "./projects/Countries/index.html",
+        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Countries",
+        downloadLink: "./projects/Countries/Countries.rar"
+    },
 ];
 
 /* --- Render Projects Function --- */
