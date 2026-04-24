@@ -5,7 +5,7 @@ const projects = [
         description: "המשחק הקלאסי שכולנו מכירים בגירסאת הדפדפן",
         category: "JS",
         tags: ["HTML", "CSS", "JavaScript"],
-        image: "./projects/Tic Tac Toe/tic-tac-toe.svg",
+        image: "./projects/Tic Tac Toe/ticTacToe.png",
         demoLink: "./projects/Tic Tac Toe/index.html",
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Tic%20Tac%20Toe",
         downloadLink: "./projects/Tic Tac Toe/Tic Tac Toe.rar"
@@ -15,7 +15,7 @@ const projects = [
         description: "אפליקציה קטנה לכתיבת רשימה",
         category: "JS",
         tags: ["HTML", "CSS", "JavaScript"],
-        image: "./projects/ToDo List/ToDoList.png",
+        image: "./projects/ToDo List/toDoList.png",
         demoLink: "./projects/ToDo List/index.html",
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/ToDo%20List",
         downloadLink: "./projects/ToDo List/ToDo List.rar"
@@ -29,6 +29,16 @@ const projects = [
         demoLink: "./projects/Countries/index.html",
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Countries",
         downloadLink: "./projects/Countries/Countries.rar"
+    },
+    {
+        title: "פקמן",
+        description: "משחק הרטרו בגירסאת הדפדפן, לא תצליחו להפסיק לשחק",
+        category: "JS",
+        tags: ["HTML", "CSS", "JavaScript"],
+        image: "./projects/Pacman/pacman.png",
+        demoLink: "./projects/Pacman/index.html",
+        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Pacman",
+        downloadLink: "./projects/Pacman/Pacman.rar"
     },
 ];
 

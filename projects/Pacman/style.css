@@ -1,0 +1,280 @@
+:root {
+    --background: #111319;
+    --surface: #191b21;
+    --primary: #fff1cb;
+    --primary-dim: #e4c451;
+    --secondary: #ffb3b2;
+    --tertiary: #a1d1bf;
+    --on-background: #e2e2ea;
+    --on-surface-variant: #cfc6b0;
+    --wall-color: #5a5d66;
+    --ghost-red: #ff5252;
+    --ghost-cyan: #40c4ff;
+    --ghost-orange: #ffb74d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--on-background);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 672px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+}
+
+.lives {
+    display: flex;
+    gap: 4px;
+    color: var(--primary-dim);
+}
+
+.hi-score {
+    color: var(--primary-dim);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+main {
+    flex: 1;
+    margin-top: 64px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 672px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/************* Score Bar *************/
+.stats-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.stat-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-group.right {
+    align-items: flex-end;
+}
+
+.label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--on-surface-variant);
+    margin-bottom: 4px;
+}
+
+.value {
+    font-family: 'Manrope', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.score-val {
+    color: var(--primary);
+}
+
+.stage-val {
+    color: var(--tertiary);
+}
+
+
+
+/************* Maze Styling *************/
+.game-container {
+    width: 700px; /* As requested */
+    position: relative;
+    background-color: var(--surface);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    z-index: 10;
+    text-align: center;
+    pointer-events: none; /* Allows clicks to pass through if needed */
+    border-radius: 16px;
+}
+
+
+.maze-grid {
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    width: 100%;
+    /* The grid height will automatically adjust based on row count */
+    background-color: var(--surface);
+    gap: 1px; /* Subtle grid lines */
+}
+
+.maze-grid.dimmed {
+    filter: blur(1px) brightness(0.99);
+    transition: filter 0.5s ease;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.wall {
+    background-color: var(--wall-color);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pellet {
+    width: 6px; /* Slightly larger for the new container size */
+    height: 6px;
+    background-color: var(--on-surface-variant);
+    border-radius: 50%;
+}
+
+.power-pellet {
+    width: 14px;
+    height: 14px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 241, 203, 0.6);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+
+/************ Pacman Character Styling ************/
+.pacman {
+    width: 85%;
+    height: 85%;
+    background-color: var(--primary-dim);
+    border-radius: 50%;
+    position: relative;
+    /* Creating the mouth using clip-path */
+    clip-path: polygon(100% 0, 100% 35%, 50% 50%, 100% 65%, 100% 100%, 0 100%, 0 0);
+    /* Initial rotation to face right */
+    transform: rotate(0deg);
+    transition: all 0.1s ease; /* Smooth transition for future movement */
+    z-index: 10;
+}
+
+
+/************ Ghost Characters Design ************/
+.ghost {
+    width: 80%;
+    height: 80%;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 4px;
+    gap: 2px;
+}
+
+.ghost-eye {
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.ghost::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: inherit;
+    clip-path: polygon(0% 0%, 20% 100%, 40% 0%, 60% 100%, 80% 0%, 100% 100%, 100% 0%);
+}
+
+.ghost-red {
+    background-color: var(--ghost-red);
+}
+
+.ghost-cyan {
+    background-color: var(--ghost-cyan);
+}
+
+.ghost-orange {
+    background-color: var(--ghost-orange);
+}
+
+/* Frightened ghost style */
+.ghost-scared {
+    background-color: #1919ff !important; /* Classic power-pellet blue */
+}
+
+.ghost-scared .ghost-eye {
+    background-color: #ffffff;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px;
+}
+
+.empty-heart {
+    font-variation-settings: 'FILL' 0;
+}

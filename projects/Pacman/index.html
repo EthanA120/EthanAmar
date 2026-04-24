@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <title>Pac-Man Game</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@500;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+    <div>HI-SCORE: <span class="hi-score"></span></div>
+    <div class="lives">
+      <span class="material-symbols-outlined empty-heart">favorite</span>
+      <span class="material-symbols-outlined">favorite</span>
+      <span class="material-symbols-outlined">favorite</span>
+    </div>
+  </header>
+  <main>
+    <div class="stats-row">
+      <div class="stat-group">
+        <span class="label">Current Score</span>
+        <span class="value score-val">0</span>
+      </div>
+      <!-- <div class="stat-group right">
+        <span class="label">Stage</span>
+        <span class="value stage-val">0</span>
+      </div> -->
+    </div>
+    <div class="game-container">
+      <div id="start-overlay" class="start-overlay">
+        <h2>PRESS ANY ARROW KEY TO START</h2>
+      </div>
+      <div id="maze" class="maze-grid dimmed"></div> <!-- Pacman and ghosts will be appended here by JS -->
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
