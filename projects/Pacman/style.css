@@ -23,7 +23,6 @@ body {
     background-color: var(--background);
     color: var(--on-background);
     font-family: 'Inter', sans-serif;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -35,7 +34,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 672px;
+    max-width: 700px;
     z-index: 50;
     display: flex;
     align-items: center;
@@ -67,7 +66,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 672px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -121,11 +120,12 @@ main {
 
 /************* Maze Styling *************/
 .game-container {
-    width: 700px; /* As requested */
+    width: 100%;
+    max-width: 700px;
     position: relative;
     background-color: var(--surface);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 0.5rem;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     display: flex;
     justify-content: center;
@@ -277,4 +277,35 @@ main {
 
 .empty-heart {
     font-variation-settings: 'FILL' 0;
+}
+
+.reset-btn {
+    background-color: var(--ghost-red);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-1px);
+}
+
+/* התאמות למסכים קטנים */
+@media (max-width: 640px) {
+    .game-container {
+        padding: 0.75rem;
+        border-radius: 8px;
+    }
+    .start-overlay h2 {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
 }

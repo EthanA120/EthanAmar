@@ -19,24 +19,16 @@
 
 <body>
   <header>
-    <div>HI-SCORE: <span class="hi-score"></span></div>
+    <div class="stat-item">HI: <span class="hi-score">0</span></div>
+    <div class="stat-item">SCORE: <span class="score-val">0</span></div>
     <div class="lives">
-      <span class="material-symbols-outlined empty-heart">favorite</span>
+      <span class="material-symbols-outlined">favorite</span>
       <span class="material-symbols-outlined">favorite</span>
       <span class="material-symbols-outlined">favorite</span>
     </div>
+    <button id="reset-btn" class="reset-btn">NEW GAME</button>
   </header>
   <main>
-    <div class="stats-row">
-      <div class="stat-group">
-        <span class="label">Current Score</span>
-        <span class="value score-val">0</span>
-      </div>
-      <!-- <div class="stat-group right">
-        <span class="label">Stage</span>
-        <span class="value stage-val">0</span>
-      </div> -->
-    </div>
     <div class="game-container">
       <div id="start-overlay" class="start-overlay">
         <h2>PRESS ANY ARROW KEY TO START</h2>

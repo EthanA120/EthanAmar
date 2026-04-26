@@ -1,6 +1,16 @@
 /* --- Projects Data Array --- */
 const projects = [
     {
+        title: "פקמן",
+        description: "משחק הרטרו בגירסאת הדפדפן, לא תצליחו להפסיק לשחק",
+        category: "JS",
+        tags: ["HTML", "CSS", "JavaScript"],
+        image: "./projects/Pacman/pacman.png",
+        demoLink: "./projects/Pacman/index.html",
+        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Pacman",
+        downloadLink: "./projects/Pacman/Pacman.rar"
+    },
+    {
         title: "איקס עיגול",
         description: "המשחק הקלאסי שכולנו מכירים בגירסאת הדפדפן",
         category: "JS",
@@ -30,16 +40,7 @@ const projects = [
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Countries",
         downloadLink: "./projects/Countries/Countries.rar"
     },
-    {
-        title: "פקמן",
-        description: "משחק הרטרו בגירסאת הדפדפן, לא תצליחו להפסיק לשחק",
-        category: "JS",
-        tags: ["HTML", "CSS", "JavaScript"],
-        image: "./projects/Pacman/pacman.png",
-        demoLink: "./projects/Pacman/index.html",
-        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Pacman",
-        downloadLink: "./projects/Pacman/Pacman.rar"
-    },
+    
 ];
 
 /* --- Render Projects Function --- */

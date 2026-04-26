@@ -1,6 +1,6 @@
 // ------------- Maze Setup -------------
 // Mapping: 0: Empty, 1: Wall, 2: Pellet, 3: Power Pellet, 4: Pacman
-const mazeLayout = [
+let mazeLayout = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 3, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 3, 1],
@@ -64,17 +64,23 @@ function createMaze() {
 // ------------- Pacman State -------------
 // Track Pacman's position in the grid (row, col)
 let pacmanPos = { x: 9, y: 7 };
+const pacmanStartPos = { x: 9, y: 7 };
 let currentDir = 'right';
 let score = 0;
+let hiScore = localStorage.getItem('pacman-hiScore') || 0;
+let lives = 3;
 let gameStarted = false;
+let isPaused = false;
+let pacmanInterval;
+let ghostInterval;
 let isScared = false;
 let powerModeTimer = null;
 
 // ------------- Ghost State & Logic -------------
 let ghosts = [
-    { x: 1, y: 1, startX: 8, startY: 9, lastX: 1, lastY: 1, isScared: false, className: 'ghost-red' },
-    { x: 17, y: 1, startX: 9, startY: 9, lastX: 17, lastY: 1, isScared: false, className: 'ghost-cyan' },
-    { x: 9, y: 13, startX: 10, startY: 9, lastX: 9, lastY: 13, isScared: false, className: 'ghost-orange' }
+    { x: 1, y: 1, returnX: 1, returnY: 1,startX: 8, startY: 9, lastX: 1, lastY: 1, isScared: false, className: 'ghost-red' },
+    { x: 17, y: 1, returnX: 17, returnY: 1, startX: 9, startY: 9, lastX: 17, lastY: 1, isScared: false, className: 'ghost-cyan' },
+    { x: 9, y: 13, returnX: 9, returnY: 13, startX: 10, startY: 9, lastX: 9, lastY: 13, isScared: false, className: 'ghost-orange' }
 ];
 
 /**
@@ -171,8 +177,7 @@ function checkCollisions() {
                 updateScoreDisplay();
                 updateGhostPositions();
             } else {
-                alert("GAME OVER! You were caught by a ghost.");
-                location.reload();
+                handleDeath();
             }
         }
     });
@@ -245,7 +250,14 @@ function updatePacmanPosition() {
 
 // ------------- Input Handling -------------
 window.addEventListener('keydown', (e) => {
-    if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+    const key = e.key.toLowerCase();
+
+    if (key === 'p' && gameStarted) {
+        togglePause();
+        return;
+    }
+
+    if (!['arrowup', 'arrowdown', 'arrowleft', 'arrowright'].includes(key)) return;
 
     switch (e.key) {
         case 'ArrowUp':
@@ -268,7 +280,7 @@ window.addEventListener('keydown', (e) => {
 
     rotatePacman(currentDir);
 
-    if (!gameStarted) {
+    if (!gameStarted || isPaused) {
         startGame();
     }
 });
@@ -278,8 +290,68 @@ window.addEventListener('keydown', (e) => {
  */
 function updateScoreDisplay() {
     const scoreElement = document.querySelector('.score-val');
+    const hiScoreElement = document.querySelector('.hi-score');
+    
     if (scoreElement) {
         scoreElement.textContent = score;
+    }
+    
+    if (score > hiScore) {
+        hiScore = score;
+        localStorage.setItem('pacman-hiScore', hiScore);
+    }
+    
+    if (hiScoreElement) {
+        hiScoreElement.textContent = hiScore;
+    }
+}
+
+/**
+ * Saves the current state of the maze and score to localStorage
+ */
+function saveProgress() {
+    localStorage.setItem('pacman-score', score);
+    localStorage.setItem('pacman-maze', JSON.stringify(mazeLayout));
+}
+
+/**
+ * Loads saved progress from localStorage
+ */
+function loadProgress() {
+    const savedMaze = localStorage.getItem('pacman-maze');
+    const savedScore = localStorage.getItem('pacman-score');
+
+    if (savedMaze) {
+        mazeLayout = JSON.parse(savedMaze);
+    }
+    if (savedScore) {
+        score = parseInt(savedScore);
+    }
+    updateScoreDisplay();
+}
+
+function handleDeath() {
+    lives--;
+    const hearts = document.querySelectorAll('.lives .material-symbols-outlined');
+    if (hearts[lives]) hearts[lives].classList.add('empty-heart');
+
+    if (lives <= 0) {
+        alert("GAME OVER!");
+        localStorage.removeItem('pacman-maze');
+        localStorage.removeItem('pacman-score');
+        location.reload();
+    } else {
+        // Reset positions but keep maze state
+        pacmanPos = { ...pacmanStartPos };
+        ghosts.forEach(ghost => {
+            ghost.x = ghost.returnX;
+            ghost.y = ghost.returnY;
+            ghost.isScared = false;
+        });
+        currentDir = 'right';
+        updatePacmanPosition();
+        updateGhostPositions();
+        pauseGame();
     }
 }
 
@@ -296,11 +368,13 @@ function collectPellet(x, y) {
         // Regular pellet: 1 point
         score += 1;
         mazeLayout[y][x] = 0; // Remove pellet from maze data
+        saveProgress();
     } else if (cellValue === 3) {
         // Power pellet: 5 points
         score += 5;
         mazeLayout[y][x] = 0; // Remove pellet from maze data
         activatePowerMode();
+        saveProgress();
     }
 
     // Remove the pellet element from the DOM
@@ -314,6 +388,49 @@ function collectPellet(x, y) {
 
     // Update the score display
     updateScoreDisplay();
+}
+
+/**
+ * Checks if there are any pellets or power pellets left in the maze
+ * @returns {boolean} - True if maze is empty of pellets
+ */
+function isMazeEmpty() {
+    return !mazeLayout.some(row => row.some(cell => cell === 2 || cell === 3));
+}
+
+/**
+ * Spawns two bonus power pellets at random empty locations
+ */
+function spawnBonusPowerPellets() {
+    const emptyCells = [];
+    
+    // Find all empty cells (excluding where Pacman currently is)
+    mazeLayout.forEach((row, y) => {
+        row.forEach((cell, x) => {
+            if (cell === 0 && !(pacmanPos.x === x && pacmanPos.y === y)) {
+                emptyCells.push({ x, y });
+            }
+        });
+    });
+
+    // If we have enough space, pick 2 random locations
+    if (emptyCells.length >= 2) {
+        for (let i = 0; i < 2; i++) {
+            const randomIndex = Math.floor(Math.random() * emptyCells.length);
+            const pos = emptyCells.splice(randomIndex, 1)[0];
+
+            mazeLayout[pos.y][pos.x] = 3; // 3 is Power Pellet
+
+            // Update the DOM to show the new pellet
+            const cell = document.querySelector(`[data-x="${pos.x}"][data-y="${pos.y}"]`);
+            if (cell) {
+                const powerPellet = document.createElement('div');
+                powerPellet.classList.add('power-pellet');
+                cell.appendChild(powerPellet);
+            }
+        }
+        saveProgress();
+    }
 }
 
 /**
@@ -372,6 +489,11 @@ function movePacman() {
 
         // Collect pellet if one exists at this position
         collectPellet(newX, newY);
+
+        // Check if level is cleared to spawn bonus pellets
+        if (isMazeEmpty()) {
+            spawnBonusPowerPellets();
+        }
         checkCollisions();
     } else {
         console.log(`Wall detected at: (${newX}, ${newY})`);
@@ -380,34 +502,61 @@ function movePacman() {
 
 // ------------- Game Loop -------------
 function startGame() {
-    if (gameStarted) return; // Prevent duplicate execution
+    if (gameStarted && !isPaused) return;
+    
+    isPaused = false;
     gameStarted = true;
 
-    // Remove instruction overlay and dimmed effect
+    // Hide instruction overlay and remove dimmed effect
     const overlay = document.getElementById('start-overlay');
-    if (overlay) overlay.remove();
+    if (overlay) overlay.style.display = 'none';
 
     const maze = document.getElementById('maze');
     if (maze) maze.classList.remove('dimmed');
 
-    // Initialize ghosts on start
-    updateGhostPositions();
+    // Clear any existing intervals to avoid speed-up
+    clearInterval(pacmanInterval);
+    clearInterval(ghostInterval);
 
-    // Move Pacman every 100ms for smooth movement
-    setInterval(() => {
-        movePacman();
-    }, 100);
-
-    // Move ghosts every 250ms (slightly slower than Pacman)
-    setInterval(() => {
+    // Start loops
+    pacmanInterval = setInterval(movePacman, 100);
+    ghostInterval = setInterval(() => {
         moveGhosts();
         checkCollisions();
     }, 250);
 
-    console.log("Game Started!");
+    console.log("Game Started/Resumed!");
+}
+
+function pauseGame() {
+    if (!gameStarted || isPaused) return;
+    
+    isPaused = true;
+    clearInterval(pacmanInterval);
+    clearInterval(ghostInterval);
+
+    const overlay = document.getElementById('start-overlay');
+    if (overlay) overlay.style.display = 'flex';
+
+    const maze = document.getElementById('maze');
+    if (maze) maze.classList.add('dimmed');
+}
+
+function togglePause() {
+    if (isPaused) startGame();
+    else pauseGame();
 }
 
 
 // Initialize
+document.getElementById('reset-btn')?.addEventListener('click', () => {
+    if (confirm('Are you sure you want to reset the game? all your progress will be lost!')) {
+        localStorage.removeItem('pacman-maze');
+        localStorage.removeItem('pacman-score');
+        location.reload();
+    }
+});
+
+loadProgress();
 createMaze();
 updateGhostPositions(); // Show ghosts (frozen) before the game starts
