@@ -322,9 +322,20 @@
             data-filter="python">Python</button>
         </div>
 
-        <div id="projects-grid"
-          class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-hide pb-8">
+        <div class="projects-carousel-wrapper">
+          <button id="prev-page" class="nav-arrow prev" aria-label="הקודם">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+
+          <div class="projects-viewport">
+            <div id="projects-grid" class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8"></div>
+          </div>
+
+          <button id="next-page" class="nav-arrow next" aria-label="הבא">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
         </div>
+        <div id="pagination-info" class="pagination-info">עמוד 1</div>
 
         <div class="flex md:hidden justify-center gap-2 mt-4" id="carousel-dots">
         </div>

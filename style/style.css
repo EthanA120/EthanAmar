@@ -76,11 +76,80 @@ body {
     /* Firefox */
 }
 
-/* Ensure each card snaps into place on mobile */
+/* Projects Carousel Wrapper */
+.projects-carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.projects-viewport {
+    flex: 1;
+    overflow: hidden;
+    padding: 1rem 0.5rem;
+}
+
+#projects-grid {
+    display: flex; /* Use flex for consistent sliding on all screens */
+    width: 100%;
+}
+
+@media (min-width: 769px) {
+    #projects-grid {
+        display: grid; /* Back to grid for desktop */
+    }
+}
+
+#projects-grid {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.nav-arrow {
+    background-color: var(--color-surface-container);
+    color: var(--color-primary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.nav-arrow:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    color: white;
+    transform: scale(1.15);
+}
+
+.nav-arrow:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.pagination-info {
+    font-weight: 700;
+    color: var(--color-on-surface-variant);
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Mobile adjustments for arrows */
 @media (max-width: 768px) {
-    #projects-grid>div {
-        min-width: 85vw;
-        scroll-snap-align: center;
-        margin-left: 1rem;
+    #projects-grid > div {
+        min-width: 100%; /* Each project takes full width on mobile */
+        margin: 0;
+    }
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
     }
 }

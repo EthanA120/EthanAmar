@@ -1,4 +1,4 @@
-/* --- Contact Form Logic with Formspree --- */
+/* --- Contact Form Submission Logic (Formspree) --- */
 const contactForm = document.getElementById('contact-form');
 const formBody = document.getElementById('form-body');
 const submitBtn = document.getElementById('submit-btn');
@@ -56,7 +56,7 @@ if (contactForm) {
                 throw new Error('שגיאה בשליחה');
             }
         } catch (error) {
-            // 5. Error State
+            // 5. Handle Errors
             alert('אופס! הייתה בעיה בשליחת הטופס. נסה שוב מאוחר יותר.');
             submitBtn.innerHTML = originalBtnContent;
             submitBtn.disabled = false;

@@ -7,7 +7,7 @@ AOS.init({
 
 
 /* ---------------- Navigation ---------------- */
-/* --- Theme Toggle Logic --- */
+/* --- Dark/Light Mode Theme Toggle Logic --- */
 const themeToggleBtn = document.getElementById('theme-toggle');
 const darkIcon = document.getElementById('theme-dark-icon');
 const lightIcon = document.getElementById('theme-light-icon');
@@ -29,7 +29,7 @@ if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
     lightIcon.hidden = false;
 }
 
-// Theme button onClick event
+// Handle theme toggle click
 themeToggleBtn.addEventListener('click', () => {
     darkIcon.hidden = !darkIcon.hidden;
     lightIcon.hidden = !lightIcon.hidden;
@@ -43,7 +43,7 @@ themeToggleBtn.addEventListener('click', () => {
     }
 });
 
-
+/* --- Mobile Menu Logic --- */
 /* --- Mobile Menu Logic --- */
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
