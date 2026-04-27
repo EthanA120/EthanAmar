@@ -1,10 +1,20 @@
 /* --- Projects Data Array --- */
 const projects = [
     {
+        title: "סודוקו",
+        description: "סודוקו קלאסי עם דרגות קושי שונות",
+        category: "JS",
+        tags: ["JavaScript", "Game", "API"],
+        image: "./projects/Sudoku/sudoku.png",
+        demoLink: "./projects/Sudoku/index.html",
+        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Sudoku",
+        downloadLink: "./projects/Sudoku/Sudoku.rar"
+    },
+    {
         title: "פקמן",
         description: "משחק הרטרו בגירסאת הדפדפן, לא תצליחו להפסיק לשחק",
         category: "JS",
-        tags: ["HTML", "CSS", "JavaScript", "Games"],
+        tags: ["JavaScript", "Game"],
         image: "./projects/Pacman/pacman.png",
         demoLink: "./projects/Pacman/index.html",
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Pacman",
@@ -14,7 +24,7 @@ const projects = [
         title: "איקס עיגול",
         description: "המשחק הקלאסי שכולנו מכירים בגירסאת הדפדפן",
         category: "JS",
-        tags: ["HTML", "CSS", "JavaScript", "Games"],
+        tags: ["JavaScript", "Game"],
         image: "./projects/Tic Tac Toe/ticTacToe.png",
         demoLink: "./projects/Tic Tac Toe/index.html",
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Tic%20Tac%20Toe",
@@ -24,7 +34,7 @@ const projects = [
         title: "רשימת משימות",
         description: "אפליקציה קטנה לכתיבת רשימה",
         category: "JS",
-        tags: ["HTML", "CSS", "JavaScript", "App"],
+        tags: ["JavaScript", "App"],
         image: "./projects/ToDo List/toDoList.png",
         demoLink: "./projects/ToDo List/index.html",
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/ToDo%20List",
@@ -34,7 +44,7 @@ const projects = [
         title: "מדינות העולם",
         description: "אפליקציה שמאפשרת חיפוש והצגה של מידע כללי על מדינות העולם",
         category: "JS",
-        tags: ["HTML", "CSS", "JavaScript", "App"],
+        tags: ["JavaScript", "App", "API"],
         image: "./projects/Countries/countries.png",
         demoLink: "./projects/Countries/index.html",
         repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Countries",

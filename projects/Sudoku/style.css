@@ -1,0 +1,145 @@
+:root {
+    --primary: #4a90e2;
+    --bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --text: #2d3436;
+    --border: #dfe6e9;
+    --error: #ff7675;
+    --selected: #e1f5fe;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1px;
+    background-color: #b2bec3;
+    border: 3px solid var(--text);
+    margin: 10px auto;
+    width: fit-content;
+}
+
+.cell {
+    width: min(45px, 9vw, 6vh);
+    height: min(45px, 9vw, 6vh);
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+}
+
+/* Highlight 3x3 sub-grids */
+.cell:nth-child(3n) { border-left: 2px solid var(--text); }
+.cell:nth-child(9n) { border-left: none; }
+.grid > div:nth-child(n+19):nth-child(-n+27),
+.grid > div:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid var(--text);
+}
+
+.cell.selected { background-color: var(--selected); }
+.cell.peer { background-color: #f0f7ff; } /* Light highlight for row/col/box */
+.cell.error-peer { background-color: #fff0f0 !important; } /* Light red for conflict areas */
+.cell.error { color: var(--error); font-weight: bold; }
+.cell.fixed { font-weight: bold; color: #636e72; background: #f9f9f9; }
+
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.num-btn, .action-btn, .controls button {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+#new-game {
+    background-color: #27ae60;
+}
+#delete-btn {
+    background-color: coral;
+}
+
+.num-btn:hover { background: #357abd; }
+.controls { margin-top: 15px; display: flex; gap: 10px; justify-content: center; }
+#timer { font-size: 1.2rem; display: block; margin-bottom: 5px; }
+h1 { margin: 0 0 10px 0; font-size: 1.5rem; }
+
+/* Difficulty Menu Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    border-radius: 20px;
+}
+
+.menu {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: popIn 0.3s ease-out;
+}
+
+.menu h2 { margin-top: 0; color: var(--text); }
+.hidden { display: none !important; }
+
+.win-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border: 3px solid #f1c40f;
+}
+
+.win-card h2 { color: #27ae60; margin-bottom: 5px; }
+.win-card p { font-size: 1.2rem; margin-bottom: 20px; }
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
