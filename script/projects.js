@@ -1,6 +1,16 @@
 /* --- Projects Data Array --- */
 const projects = [
     {
+        title: "פונג",
+        description: "משחק פינג פונג רטרו עם שני דרגות קושי",
+        category: "JS",
+        tags: ["JavaScript", "Game"],
+        image: "./projects/Pong/pong.png",
+        demoLink: "./projects/Pong/index.html",
+        repoLink: "https://github.com/EthanA120/EthanAmar/tree/main/projects/Pong",
+        downloadLink: "./projects/Pong/Pong.rar"
+    },
+    {
         title: "סודוקו",
         description: "סודוקו קלאסי עם דרגות קושי שונות",
         category: "JS",
@@ -55,7 +65,17 @@ const projects = [
 /* --- Global State for Pagination --- */
 let currentPage = 0;
 let currentFilter = "all";
+let isAnimating = false;
 const getItemsPerPage = () => window.innerWidth <= 768 ? 1 : 6;
+
+/**
+ * Helper function to get the current filtered set of projects
+ */
+const getFilteredProjects = () => {
+    return currentFilter === "all" 
+        ? projects 
+        : projects.filter(p => p.category === currentFilter || p.tags.includes(currentFilter));
+};
 
 /**
  * Renders the projects gallery based on current filter and page.
@@ -67,12 +87,9 @@ function renderProjects(direction = 'none') {
     const nextBtn = document.getElementById('next-page');
     const pageInfo = document.getElementById('pagination-info');
     
-    if (!grid) return;
+    if (!grid || isAnimating) return;
 
-    // Filter logic
-    const filtered = currentFilter === "all" 
-        ? projects 
-        : projects.filter(p => p.category === currentFilter);
+    const filtered = getFilteredProjects();
 
     const itemsPerPage = getItemsPerPage();
 
@@ -93,14 +110,14 @@ function renderProjects(direction = 'none') {
             <div class="relative aspect-video overflow-hidden">
                 <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 <div class="absolute inset-0 bg-primary/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <a href="${project.demoLink}" target="_blank" aria-label="צפייה בדמו" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">play_circle</span></a>
-                    <a href="${project.repoLink}" target="_blank" aria-label="קוד מקור ב-GitHub" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">folder_code</span></a>
-                    <a href="${project.downloadLink}" target="_blank" download aria-label="הורדת פרויקט" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">download</span></a>
+                    <a href="${project.demoLink}" target="_blank" aria-label="צפייה בדמו" title="צפייה בדמו" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">play_circle</span></a>
+                    <a href="${project.repoLink}" target="_blank" aria-label="קוד מקור ב-GitHub" title="קוד מקור ב-GitHub" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">folder_code</span></a>
+                    <a href="${project.downloadLink}" target="_blank" download aria-label="הורדת פרויקט" title="הורדת פרויקט" class="p-2 bg-surface rounded-full text-primary hover:scale-110 shadow-lg"><span class="material-symbols-outlined project-button">download</span></a>
                 </div>
             </div>
             <div class="p-6 text-right">
                 <div class="flex flex-row-reverse gap-2 mb-3">
-                    ${project.tags.map(tag => `<span class="text-md font-bold px-2 py-1 bg-primary/10 text-primary rounded-md uppercase">${tag}</span>`).join('')}
+                    ${project.tags.map(tag => `<button class="tag-filter-btn text-md font-bold px-2 py-1 bg-primary/10 text-primary rounded-md uppercase hover:bg-primary hover:text-white transition-all cursor-pointer border-none outline-none">${tag}</button>`).join('')}
                 </div>
                 <h3 class="text-xl font-black text-on-surface mb-2">${project.title}</h3>
                 <p class="text-on-surface-variant text-lg leading-relaxed">${project.description}</p>
@@ -110,15 +127,19 @@ function renderProjects(direction = 'none') {
 
     // Handle Sliding Animation
     if (direction !== 'none') {
+        isAnimating = true;
         grid.style.opacity = '0';
-        grid.style.transform = direction === 'next' ? 'translateX(30px)' : 'translateX(-30px)';
+        grid.style.transform = direction === 'next' ? 'translateX(20px)' : 'translateX(-20px)';
         
         setTimeout(() => {
             grid.innerHTML = htmlContent;
-            grid.style.transform = direction === 'next' ? 'translateX(-30px)' : 'translateX(30px)';
-            grid.offsetHeight; // Force reflow
-            grid.style.opacity = '1';
-            grid.style.transform = 'translateX(0)';
+            grid.style.transform = direction === 'next' ? 'translateX(-20px)' : 'translateX(20px)';
+            
+            requestAnimationFrame(() => {
+                grid.style.opacity = '1';
+                grid.style.transform = 'translateX(0)';
+                setTimeout(() => { isAnimating = false; }, 200); // Wait for transition to finish
+            });
         }, 250);
     } else {
         grid.innerHTML = htmlContent;
@@ -147,7 +168,7 @@ const handlePrev = () => {
 document.getElementById('prev-page')?.addEventListener('click', handlePrev);
 
 const handleNext = () => {
-    const filtered = currentFilter === "all" ? projects : projects.filter(p => p.category === currentFilter);
+    const filtered = getFilteredProjects();
     const itemsPerPage = getItemsPerPage();
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
     if (currentPage < totalPages - 1) {
@@ -184,6 +205,23 @@ function handleSwipe() {
         handlePrev();
     }
 }
+
+// Handle tag clicks inside the grid using event delegation
+gridElement?.addEventListener('click', (e) => {
+    const tagBtn = e.target.closest('.tag-filter-btn');
+    if (tagBtn) {
+        currentPage = 0;
+        currentFilter = tagBtn.textContent.trim();
+
+        // Deactivate all top category filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('bg-primary', 'text-surface', 'border-primary');
+            btn.classList.add('text-on-surface-variant', 'border-on-surface/10', 'hover:border-primary', 'hover:text-primary');
+        });
+
+        renderProjects();
+    }
+});
 
 // Re-render on resize to update itemsPerPage
 window.addEventListener('resize', () => {

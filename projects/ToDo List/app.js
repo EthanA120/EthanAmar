@@ -50,18 +50,18 @@ function editTask(task, taskParagraph) {
     const editTaskButton = document.createElement("button");
     editTaskButton.innerText = "edit";
     editTaskButton.className = "edit-btn material-symbols-outlined";
-    editTaskButton.title = "Edit Task";
+    editTaskButton.title = "ערוך משימה";
 
     editTaskButton.addEventListener("click", () => {
         if (editTaskButton.innerText === "edit") {
             editTaskButton.innerText = "check";
-            editTaskButton.title = "Done";
+            editTaskButton.title = "סיום";
             editTaskButton.style.backgroundColor = "#2196F3"
             taskParagraph.contentEditable = true;
             taskParagraph.focus();
         } else {
             editTaskButton.innerText = "edit";
-            editTaskButton.title = "Edit Task";
+            editTaskButton.title = "ערוך משימה";
             editTaskButton.style.backgroundColor = ""; // Back to original BG Color
             taskParagraph.contentEditable = false;
             task.task = taskParagraph.innerText;
@@ -75,7 +75,7 @@ function deleteTask(task, taskListItem) {
     const removeTaskButton = document.createElement("button");
     removeTaskButton.innerText = "delete";
     removeTaskButton.className = "delete-btn material-symbols-outlined";
-    removeTaskButton.title = "Delete Task";
+    removeTaskButton.title = "מחק משימה";
 
     removeTaskButton.addEventListener("click", () => {
         taskListItem.remove();
@@ -88,4 +88,3 @@ function deleteTask(task, taskListItem) {
 addButton.addEventListener("click", () => addTask(taskInput.value));
 
 restoreTasksFromLocalStorage();
-

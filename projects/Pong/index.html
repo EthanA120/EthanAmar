@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Pong</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="ui-overlay" id="ui-overlay">
+            <h1>PONG</h1>
+            <div class="difficulty-selection">
+                <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+            <p class="instruction">Click anywhere to start</p>
+        </div>
+
+        <div class="pause-overlay" id="pause-overlay">
+            <h2>PAUSED</h2>
+            <p>Press 'P' to resume</p>
+        </div>
+        
+        <div class="score-container">
+            <div class="score" id="ai-score">0</div>
+            <div class="score" id="player-score">0</div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
